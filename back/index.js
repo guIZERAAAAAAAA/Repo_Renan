@@ -1,6 +1,7 @@
 import express from "express"
 import database from "./config/database.js"
 import routerUser from "./router/user.js"
+import cors from 'cors'
 
 // se tiver no aeo 
 //import  batata  from "./router/user.js" 
@@ -11,6 +12,7 @@ import routerUser from "./router/user.js"
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 app.use("/api/v1/user", routerUser)
 
