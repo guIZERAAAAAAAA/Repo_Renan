@@ -60,7 +60,7 @@ class ServiceUser {
             throw new Error("Email ou senha inválido")
         }
 
-        const user = await RepositoryUser.BuscarEmail(email)
+        const user = await repositoryUser.BuscarEmail(email)
 
         if (!user || !(await bcrypt.compare(String(password), user.password))
         )
