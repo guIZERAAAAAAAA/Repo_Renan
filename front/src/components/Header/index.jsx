@@ -1,10 +1,22 @@
+import { useNavigate } from 'react-router-dom'
 import './style.css'
 
-function Header (){
+function Header() {
+
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        localStorage.removeItem('token')
+        return navigate('/')
+    }
+
     return (
-    <>
-    Header
-    </>
+        <>
+            Header
+            <button>
+                onClick={handleLogout}
+            Sair </button>
+        </>
     )
 }
 

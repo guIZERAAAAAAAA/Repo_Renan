@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import './style.css'
 import { loginUser } from '../../api/user';
+import { useNavigate } from "react-router-dom"
 
 export default function Login() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -10,6 +12,8 @@ export default function Login() {
     e.preventDefault()// parar o envio 
     const response = await loginUser(email, senha)
     localStorage.setItem('token', response.token)
+    return navigate ('/users')
+       //toast pesquisar 
   }
 
   return (

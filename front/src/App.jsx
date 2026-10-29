@@ -3,6 +3,8 @@ import Login from './pages/login'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { Route, Routes } from 'react-router-dom'
+import User from './pages/Users'
+import PrivateRoute from './routes/PrivateRoute'
 
 function App() {
   return (
@@ -11,6 +13,9 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Login />} />
+      <Route element={<PrivateRoute/>}>
+        <Route path='/users' element={<User />} />
+        </Route>
       </Routes>
 
       <Footer />
